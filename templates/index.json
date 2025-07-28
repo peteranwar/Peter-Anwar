@@ -80,11 +80,26 @@
       "type": "custom-grid",
       "name": "Custom Grid",
       "settings": {}
+    },
+    "custom_image_banner_EXz7Ld": {
+      "type": "custom-image-banner",
+      "name": "Custom Image Banner",
+      "settings": {
+        "logo": "tisso vision",
+        "slogan": "Find the ideal gift for your loved ones.",
+        "header-button-title": "choose gift",
+        "title": "The Gift Guide",
+        "description1": "Discover Joy: Your Ultimate Holiday Gift Destination.",
+        "description2": "Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "banner-button-title": "shop now",
+        "banner-footer": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "custom_grid_AWtGtp"
+    "custom_grid_AWtGtp",
+    "custom_image_banner_EXz7Ld"
   ]
 }
