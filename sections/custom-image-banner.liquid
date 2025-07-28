@@ -1,0 +1,114 @@
+{{ 'custom-image-banner.css' | asset_url | stylesheet_tag }}
+
+<div id="t-header">
+  <img
+    id="drawer-icon"
+    src="{{ 'humburger.svg' |  asset_url}}"
+    width="18"
+    height="10" />
+
+  <img
+    id="close-drawer-icon"
+    src="{{ "close-drawer.svg" | asset_url}} }}"
+    width="18"
+    height="10" />
+
+  <h3 id="logo">
+    {{ section.settings.logo | upcase }}
+  </h3>
+  <div id="drawer-content">
+    <p id="slogan">{{ section.settings.slogan }}</p>
+    <button id="header-button">{{ section.settings.header-button-title | upcase }}</button>
+  </div>
+</div>
+
+<div id="banner">
+  <img
+    src="{{ "Frame1.svg" | asset_url}}"
+    width=""
+    height=""
+    id="hero-image">
+
+  <div id="sec-banner">
+    <div id="banner-text-wrapper">
+      <h1 id="banner-title">{{ section.settings.title }}</h1>
+      <p id="banner-text">{{ section.settings.description1 }}
+        <span id="desc2">
+          {{ section.settings.description2 }}
+        </span>
+      </p>
+      <button id="banner-button" type="button">{{ section.settings.banner-button-title | upcase }}</button>
+    </div>
+
+    <img
+      src="{{ "Frame2.svg" | asset_url}}"
+      width=""
+      height=""
+      id="sec-image" />
+  </div>
+</div>
+
+<div id="banner-footer">
+  <p>{{ section.settings.banner-footer | upcase }}</p>
+</div>
+
+{{ 'custom-image-banner.js' | asset_url | script_tag }}
+
+{% schema %}
+  {
+    "name": "Custom Image Banner",
+    "class": "t-image-banner",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "logo",
+        "label": "Logo",
+        "default": "tisso vision"
+      },
+      {
+        "type": "text",
+        "id": "slogan",
+        "label": "Slogan",
+        "default": "Find the ideal gift for your loved ones."
+      },
+      {
+        "type": "text",
+        "id": "header-button-title",
+        "label": "Button Title",
+        "default": "choose gift"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "The Gift Guide"
+      }, {
+        "type": "textarea",
+        "id": "description1",
+        "label": "Description1",
+        "default": "Discover Joy: Your Ultimate Holiday Gift Destination."
+      }, {
+        "type": "textarea",
+        "id": "description2",
+        "label": "Description2",
+        "default": "Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+      }, {
+        "type": "text",
+        "id": "banner-button-title",
+        "label": "Button Title",
+        "default": "shop now"
+      }, {
+        "type": "text",
+        "id": "banner-footer",
+        "label": "Banner Footer",
+        "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Image Banner"
+      }
+    ]
+  }
+{% endschema %}

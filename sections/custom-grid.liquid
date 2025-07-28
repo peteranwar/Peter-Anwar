@@ -1,0 +1,99 @@
+{{ 'custom-grid.css' | asset_url | stylesheet_tag }}
+
+<p id="grid-title">Tisso vison in the wild</p>
+
+<div id="grid-container">
+  {% for product in collections["Task"].products limit: 6 %}
+    <product-card>
+      <div class="product-card" slot="product-card-content">
+        <img
+          class="product_image"
+          src="{{ product.featured_image | image_url }}"
+          width=""
+          height="" />
+
+        <img
+          class="plus-icon"
+          src="{{ 'T-plus.svg' | asset_url}}"
+          width="22"
+          height="22" />
+
+        <div class="overlay">
+          <div class="popup-card">
+            <img
+              class="close-popup"
+              src="{{ "close-drawer.svg" | asset_url}} }}"
+              width=""
+              height="" />
+            <div class="product_details">
+              <img
+                class="popup-image"
+                src="{{ product.featured_image | image_url }}"
+                alt=""
+                width=""
+                height="">
+              <div class="product-text-details">
+                <h4>{{ product.title }}</h4>
+                <span>{{ product.price | money_with_currency }}</span>
+                <p>{{ product.description }}</p>
+              </div>
+            </div>
+            <div class="colors-options">
+              <span>Color</span>
+              <div class="colors">
+                {% for option in product.options_with_values %}
+                  {% if option.name == "Color" %}
+                    {% for value in option.values %}
+                      <div
+                        class="color-option"
+                        data-color="{{ value }}"
+                        style="border-left-color: {{ value }};">{{ value }}</div>
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="size-options">
+              <span>Size</span>
+              <select name="size" class="size-select">
+                {% for option in product.options_with_values %}
+                  {% if option.name == "Size" %}
+                    {% for value in option.values %}
+                      <option
+                        value="{{ value }}"
+                        {% if value == option.values[0] %}
+                        selected
+                        {% endif %}>
+                        {{ value }}
+                      </option>
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+            <script type="application/json" class="product-data">
+              {{ product.variants | json }}
+            </script>
+            <button type="button" class="addToCart-button">add to cart</button>
+          </div>
+        </div>
+      </div>
+    </product-card>
+  {% endfor %}</div>
+
+{% comment %} {{ 'custom-grid.js' | asset_url | script_tag }} {% endcomment %}
+{{ 'product-card.js' | asset_url | script_tag }}
+
+{% schema %}
+  {
+    "name": "Custom Grid",
+    "class": "t-grid",
+    "tag": "section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Custom Grid"
+      }
+    ]
+  }
+{% endschema %}
