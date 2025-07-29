@@ -47,7 +47,9 @@
                       <div
                         class="color-option"
                         data-color="{{ value }}"
-                        style="border-left-color: {{ value }};">{{ value }}</div>
+                        style="border-left-color: {{ value }};">
+                         <span>{{ value }}</span>
+                        </div>
                     {% endfor %}
                   {% endif %}
                 {% endfor %}
@@ -74,7 +76,7 @@
             <script type="application/json" class="product-data">
               {{ product.variants | json }}
             </script>
-            <button type="button" class="addToCart-button">add to cart</button>
+            <button type="button" class="add-to-cart_btn">add to cart</button>
           </div>
         </div>
       </div>

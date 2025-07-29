@@ -1,6 +1,6 @@
 {{ 'custom-image-banner.css' | asset_url | stylesheet_tag }}
 
-<div id="t-header">
+<div class="main-header">
   <img
     id="drawer-icon"
     src="{{ 'humburger.svg' |  asset_url}}"
@@ -13,7 +13,7 @@
     width="18"
     height="10" />
 
-  <h3 id="logo">
+  <h3 class="main-logo">
     {{ section.settings.logo | upcase }}
   </h3>
   <div id="drawer-content">
@@ -24,7 +24,7 @@
 
 <div id="banner">
   <img
-    src="{{ "Frame1.svg" | asset_url}}"
+    src="{{ "imgBg1.svg" | asset_url}}"
     width=""
     height=""
     id="hero-image">
@@ -41,7 +41,7 @@
     </div>
 
     <img
-      src="{{ "Frame2.svg" | asset_url}}"
+      src="{{ "imgBg2.svg" | asset_url}}"
       width=""
       height=""
       id="sec-image" />
