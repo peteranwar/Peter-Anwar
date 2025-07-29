@@ -4,12 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   openPopupButtons.forEach((button) =>
     button.addEventListener("click", (event) => {
-      event.stopPropagation(); // يمنع Bubbling
+      event.stopPropagation();
       const overlay = event.target
         .closest(".product-card")
         .querySelector(".overlay");
   
-      // تأخير بسيط عشان click outside ما يقفلها فورًا
       setTimeout(() => {
         document.querySelectorAll(".overlay").forEach((ov) => {
           ov.style.display = "none";
